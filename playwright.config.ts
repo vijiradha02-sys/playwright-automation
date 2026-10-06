@@ -2,8 +2,11 @@ import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./tests",
-  reporter: "html",
+  reporter: [["html"], ["list"]],
   use: {
-    headless: false,
+    headless: true,
+    screenshot: "only-on-failure",
+    video: "retain-on-failure",
+    trace: "retain-on-failure",
   },
 });
